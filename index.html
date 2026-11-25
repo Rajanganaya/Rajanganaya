@@ -1,207 +1,670 @@
 <!DOCTYPE html>
 <html lang="si">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>රාජාංගනය — සොබාදහම සහ තොරතුරු</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Sinhala:wght@400;600;700&display=swap" rel="stylesheet" />
-  <style>
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    body {
-      font-family: 'Noto Sans Sinhala', sans-serif;
-      background: #f3f8f7;
-      color: #162421;
-      line-height: 1.75;
-    }
-    header {
-      background: linear-gradient(135deg, #0b4f4a, #177e74);
-      color: #ffffff;
-      padding: 68px 20px;
-      text-align: center;
-    }
-    header h1 {
-      font-size: 2.2rem;
-      margin-bottom: 12px;
-    }
-    header p {
-      max-width: 720px;
-      margin: 0 auto 28px;
-      font-size: 1.05rem;
-      opacity: 0.95;
-    }
-    .btn-whatsapp {
-      display: inline-block;
-      background: #25d366;
-      color: #072111;
-      padding: 14px 28px;
-      border-radius: 10px;
-      text-decoration: none;
-      font-weight: 700;
-      font-size: 1rem;
-      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.18);
-      transition: transform 0.15s ease, opacity 0.15s ease;
-    }
-    .btn-whatsapp:hover {
-      transform: translateY(-2px);
-      opacity: 0.95;
-    }
-    .container {
-      max-width: 1000px;
-      margin: 0 auto;
-      padding: 40px 20px;
-    }
-    .section {
-      background: #ffffff;
-      border-radius: 16px;
-      padding: 28px;
-      margin-bottom: 28px;
-      box-shadow: 0 8px 24px rgba(15, 40, 35, 0.06);
-    }
-    .section h2 {
-      color: #0b4f4a;
-      margin-bottom: 14px;
-      font-size: 1.45rem;
-      border-left: 5px solid #177e74;
-      padding-left: 12px;
-    }
-    .info-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 18px;
-      margin-top: 18px;
-    }
-    .card {
-      background: #f2f9f8;
-      border: 1px solid #d7ece8;
-      border-radius: 12px;
-      padding: 18px;
-    }
-    .card h3 {
-      color: #0e635c;
-      margin-bottom: 8px;
-      font-size: 1.1rem;
-    }
-    .gallery {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 16px;
-      margin-top: 16px;
-    }
-    .gallery figure {
-      background: #f8fbfb;
-      border-radius: 12px;
-      overflow: hidden;
-      border: 1px solid #e2ecea;
-    }
-    .gallery img {
-      width: 100%;
-      height: 220px;
-      object-fit: cover;
-      display: block;
-    }
-    .gallery figcaption {
-      padding: 10px 14px;
-      font-size: 0.92rem;
-      color: #354a46;
-    }
-    .contact-box {
-      background: #eefaf6;
-      border: 1px solid #bfe6da;
-      border-radius: 12px;
-      padding: 22px;
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      justify-content: space-between;
-      gap: 16px;
-    }
-    footer {
-      text-align: center;
-      padding: 24px 16px;
-      color: #4f635f;
-      font-size: 0.9rem;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>රාජාංගනය - Rajanganaya</title>
+    <!-- Google Fonts for Sinhala & English -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Sinhala:wght@400;600;700&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome for Icons (WhatsApp, Phone, Email) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --primary-green: #1b5e20;
+            --light-green: #4caf50;
+            --water-blue: #0277bd;
+            --gold-accent: #fbc02d;
+            --bg-light: #f4f9f4;
+            --text-dark: #263238;
+            --white: #ffffff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', 'Noto Sans Sinhala', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-light);
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+
+        /* Language Visibility Control */
+        body.lang-si .en { display: none !important; }
+        body.lang-en .si { display: none !important; }
+
+        /* Top Bar & Language Switcher */
+        .top-bar {
+            background-color: var(--primary-green);
+            color: var(--white);
+            padding: 10px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .top-bar-title {
+            font-weight: 700;
+            font-size: 1.2rem;
+            letter-spacing: 0.5px;
+        }
+
+        .lang-switch {
+            display: flex;
+            gap: 8px;
+        }
+
+        .lang-btn {
+            background: rgba(255, 255, 255, 0.2);
+            color: var(--white);
+            border: 1px solid var(--white);
+            padding: 5px 14px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .lang-btn.active, .lang-btn:hover {
+            background: var(--gold-accent);
+            color: var(--text-dark);
+            border-color: var(--gold-accent);
+        }
+
+        /* Cover Photo Section (Uses photo4.jpg) */
+        .hero-cover {
+            position: relative;
+            width: 100%;
+            height: 420px;
+            background: linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.55)), url('photo4.jpg') center/cover no-repeat;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: var(--white);
+            padding: 20px;
+            overflow: hidden;
+        }
+
+        .hero-cover h1 {
+            font-size: 2.8rem;
+            text-shadow: 2px 2px 10px rgba(0,0,0,0.7);
+            animation: fadeInDown 1s ease;
+        }
+
+        .hero-cover p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin-top: 10px;
+            text-shadow: 1px 1px 6px rgba(0,0,0,0.7);
+            animation: fadeInUp 1.2s ease;
+        }
+
+        /* Left-to-Right Marquee Banner ("ආයුබෝවන් රාජාංගනය") */
+        .welcome-marquee-container {
+            background: linear-gradient(90deg, var(--water-blue), var(--primary-green));
+            color: var(--gold-accent);
+            padding: 12px 0;
+            overflow: hidden;
+            position: relative;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .welcome-marquee-text {
+            display: inline-block;
+            white-space: nowrap;
+            font-size: 1.5rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-shadow: 1px 1px 4px rgba(0,0,0,0.5);
+            animation: moveLeftToRight 14s linear infinite;
+        }
+
+        @keyframes moveLeftToRight {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100vw); }
+        }
+
+        /* Navigation Tabs */
+        .nav-tabs {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            background-color: var(--white);
+            padding: 12px 5%;
+            gap: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .tab-btn {
+            background: transparent;
+            border: 2px solid transparent;
+            padding: 10px 16px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--text-dark);
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .tab-btn:hover {
+            background-color: #e8f5e9;
+            color: var(--primary-green);
+        }
+
+        .tab-btn.active {
+            background-color: var(--primary-green);
+            color: var(--white);
+            box-shadow: 0 4px 8px rgba(27, 94, 32, 0.3);
+        }
+
+        /* Main Content Container */
+        .container {
+            max-width: 1150px;
+            margin: 30px auto;
+            padding: 0 20px;
+        }
+
+        .tab-content {
+            display: none;
+            background: var(--white);
+            padding: 35px;
+            border-radius: 16px;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.06);
+            animation: fadeIn 0.6s ease;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        .section-title {
+            color: var(--primary-green);
+            font-size: 1.9rem;
+            margin-bottom: 15px;
+            border-bottom: 3px solid var(--gold-accent);
+            display: inline-block;
+            padding-bottom: 5px;
+        }
+
+        /* Photo Gallery Grid */
+        .photo-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin: 25px 0;
+        }
+
+        .photo-card {
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            background: #fafafa;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .photo-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+        }
+
+        .photo-card img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .photo-card-caption {
+            padding: 12px 15px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--primary-green);
+            text-align: center;
+        }
+
+        /* Feature Two-Column Layout for Other Tabs */
+        .split-section {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            align-items: center;
+            margin-top: 20px;
+        }
+
+        .split-section img {
+            width: 100%;
+            height: 320px;
+            object-fit: cover;
+            border-radius: 12px;
+            box-shadow: 0 6px 15px rgba(0,0,0,0.12);
+            transition: transform 0.4s ease;
+        }
+
+        .split-section img:hover {
+            transform: scale(1.02);
+        }
+
+        /* Contact Cards on Home Page */
+        .contact-box {
+            margin-top: 35px;
+            background: linear-gradient(135deg, #e8f5e9, #e1f5fe);
+            padding: 25px;
+            border-radius: 14px;
+            border-left: 6px solid var(--primary-green);
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .contact-item {
+            background: var(--white);
+            padding: 15px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+
+        .contact-item i {
+            font-size: 1.5rem;
+            color: var(--primary-green);
+        }
+
+        .whatsapp-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            background-color: #25D366;
+            color: var(--white);
+            text-decoration: none;
+            padding: 12px 22px;
+            border-radius: 30px;
+            font-weight: 700;
+            box-shadow: 0 4px 12px rgba(37, 211, 102, 0.4);
+            transition: transform 0.3s ease, background-color 0.3s ease;
+        }
+
+        .whatsapp-btn:hover {
+            background-color: #1ebe57;
+            transform: scale(1.05);
+        }
+
+        /* Floating WhatsApp Button */
+        .floating-wa {
+            position: fixed;
+            bottom: 25px;
+            right: 25px;
+            background-color: #25D366;
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 30px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.25);
+            z-index: 999;
+            text-decoration: none;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
+            70% { box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(15px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--primary-green);
+            color: var(--white);
+            text-align: center;
+            padding: 20px;
+            margin-top: 50px;
+        }
+
+        /* Responsive Mobile View */
+        @media (max-width: 768px) {
+            .hero-cover { height: 320px; }
+            .hero-cover h1 { font-size: 2rem; }
+            .split-section { grid-template-columns: 1fr; }
+            .welcome-marquee-text { font-size: 1.2rem; }
+        }
+    </style>
 </head>
-<body>
+<body class="lang-si">
 
-  <header>
-    <h1>රාජාංගනය — සොබාදහම සහ වාරි උරුමය</h1>
-    <p>
-      අනුරාධපුර දිස්ත්‍රික්කයේ පිහිටි රාජාංගනය ජලාශය, අවට සුන්දර පරිසරය, ජන ජීවිතය සහ ඡායාරූප එකතුව මෙම වෙබ් පිටුවෙන් දැකගත හැකිය.
-    </p>
-    <a class="btn-whatsapp" href="https://wa.me/9477XXXXXXXX?text=ආයුබෝවන්%2C%20රාජාංගනය%20වෙබ්%20පිටුව%20හරහා%20සම්බන්ධ%20වෙමි." target="_blank" rel="noopener">
-      WhatsApp හරහා සම්බන්ධ වන්න
-    </a>
-  </header>
-
-  <main class="container">
-
-    <section class="section" id="about-rajanganaya">
-      <h2>රාජාංගනය ගැන තොරතුරු</h2>
-      <p>
-        රාජාංගනය යනු ශ්‍රී ලංකාවේ උතුරු මැද සහ වයඹ පළාත් මායිම ආශ්‍රිතව, කලා ඔය හරස් කර ඉදිකරන ලද විශාල ජලාශය සහ ඒ වටා ගොඩනැගුණු සශ්‍රීක ජනපද ප්‍රදේශයයි. කෘෂිකර්මාන්තය, මිරිදිය ධීවර කර්මාන්තය සහ නිස්කලංක පරිසරය නිසා මෙම ප්‍රදේශයට සුවිශේෂී වටිනාකමක් හිමි වේ.
-      </p>
-
-      <div class="info-grid">
-        <div class="card">
-          <h3>වාරිමාර්ග හා කෘෂිකර්මය</h3>
-          <p>
-            අවට ගොවිබිම් විශාල ප්‍රමාණයකට වාරි ජලය සපයන රාජාංගනය ජලාශය, ප්‍රදේශයේ වී වගාව සහ ගොවි ජන ජීවිතයේ ප්‍රධාන ජීවනාලිය ලෙස ක්‍රියා කරයි.
-          </p>
+    <!-- Top Bar with Language Selector -->
+    <div class="top-bar">
+        <div class="top-bar-title">
+            <span class="si">🌿 රාජාංගනය තොරතුරු කේන්ද්‍රය</span>
+            <span class="en">🌿 Rajanganaya Information Portal</span>
         </div>
-        <div class="card">
-          <h3>පරිසරය හා සුන්දරත්වය</h3>
-          <p>
-            වැව් තාවුල්ල, හරිත වන පෙත, කුරුල්ලන් සහ සැඳෑ හිරු බැස යන දසුන් ඡායාරූපකරණයට සහ සොබාදහම විඳීමට ඉතාම සුදුසු පරිසරයක් නිර්මාණය කරයි.
-          </p>
+        <div class="lang-switch">
+            <button class="lang-btn active" id="btn-si" onclick="setLanguage('si')">සිංහල</button>
+            <button class="lang-btn" id="btn-en" onclick="setLanguage('en')">English</button>
         </div>
-        <div class="card">
-          <h3>පිහිටීම හා ප්‍රවේශය</h3>
-          <p>
-            තඹුත්තේගම සහ සිරිමාපුර ඇතුළු අවට නගර සමඟ සම්බන්ධ වන මාර්ග ඔස්සේ රාජාංගනය ප්‍රදේශයට පහසුවෙන් ළඟා විය හැකිය.
-          </p>
-        </div>
-      </div>
-    </section>
+    </div>
 
-    <section class="section" id="photos">
-      <h2>රාජාංගනය ඡායාරූප එකතුව</h2>
-      <div class="gallery">
-        <figure>
-          <img src="photo1.jpg" alt="රාජාංගනය වැව 1" />
-          <figcaption>රාජාංගනය ජලාශයේ සුන්දර දසුනක්</figcaption>
-        </figure>
-        <figure>
-          <img src="photo2.jpg" alt="රාජාංගනය වැව 2" />
-          <figcaption>වැව් බැම්ම සහ අවට පරිසරය</figcaption>
-        </figure>
-        <figure>
-          <img src="photo3.jpg" alt="රාජාංගනය වැව 3" />
-          <figcaption>සැඳෑ සමයේ රාජාංගනය ජලාශය</figcaption>
-        </figure>
-      </div>
-    </section>
-
-    <section class="section" id="contact">
-      <h2>වැඩිදුර විස්තර සඳහා</h2>
-      <div class="contact-box">
+    <!-- Cover Photo (photo4.jpg) -->
+    <header class="hero-cover">
+        <h1>
+            <span class="si">සුන්දර රාජාංගනය</span>
+            <span class="en">Beautiful Rajanganaya</span>
+        </h1>
         <p>
-          රාජාංගනය පිළිබඳ වැඩිදුර තොරතුරු දැනගැනීමට හෝ අප හා සම්බන්ධ වීමට පහත WhatsApp බොත්තම ඔබන්න.
+            <span class="si">කෘෂිකර්මාන්තය, සොබාදහම සහ ඓතිහාසික උරුමයන්ගෙන් පිරි අනුරාධපුර දිස්ත්‍රික්කයේ සශ්‍රීක පුරවරය</span>
+            <span class="en">A fertile paradise in the Anuradhapura District rich in agriculture, nature, and historical heritage</span>
         </p>
-        <a class="btn-whatsapp" href="https://wa.me/9477XXXXXXXX?text=ආයුබෝවන්%2C%20රාජාංගනය%20ගැන%20විස්තර%20දැනගන්න%20කැමතියි." target="_blank" rel="noopener">
-          WhatsApp පණිවිඩයක් යවන්න
-        </a>
-      </div>
-    </section>
+    </header>
 
-  </main>
+    <!-- Left to Right Moving Text ("ආයුබෝවන් රාජාංගනය") -->
+    <div class="welcome-marquee-container">
+        <div class="welcome-marquee-text">
+            <span class="si">🙏 ආයුබෝවන් රාජාංගනය! සොබාදහමේ සුන්දරත්වය විඳගන්නට ඔබ සාදරයෙන් පිළිගනිමු... 🌾🌊</span>
+            <span class="en">🙏 Ayubowan Rajanganaya! Warmly welcoming you to experience the beauty of nature... 🌾🌊</span>
+        </div>
+    </div>
 
-  <footer>
-    රාජාංගනය තොරතුරු වෙබ් පිටුව
-  </footer>
+    <!-- Navigation Tabs -->
+    <nav class="nav-tabs">
+        <button class="tab-btn active" onclick="openTab(event, 'home')">
+            <span class="si">🏠 මුල් පිටුව</span>
+            <span class="en">🏠 Home</span>
+        </button>
+        <button class="tab-btn" onclick="openTab(event, 'reservoir')">
+            <span class="si">🌊 රාජාංගනය ජලාශය</span>
+            <span class="en">🌊 Reservoir</span>
+        </button>
+        <button class="tab-btn" onclick="openTab(event, 'agriculture')">
+            <span class="si">🌾 කෘෂිකර්මාන්තය</span>
+            <span class="en">🌾 Agriculture</span>
+        </button>
+        <button class="tab-btn" onclick="openTab(event, 'fisheries')">
+            <span class="si">🐟 ධීවර කර්මාන්තය</span>
+            <span class="en">🐟 Fisheries</span>
+        </button>
+        <button class="tab-btn" onclick="openTab(event, 'tourism')">
+            <span class="si">📸 සංචාරක කර්මාන්තය</span>
+            <span class="en">📸 Tourism</span>
+        </button>
+        <button class="tab-btn" onclick="openTab(event, 'lifestyle')">
+            <span class="si">🏡 ජන ජීවිතය</span>
+            <span class="en">🏡 Lifestyle</span>
+        </button>
+        <button class="tab-btn" onclick="openTab(event, 'history')">
+            <span class="si">🏛️ ඉතිහාසය</span>
+            <span class="en">🏛️ History</span>
+        </button>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="container">
+
+        <!-- 1. HOME TAB -->
+        <section id="home" class="tab-content active">
+            <h2 class="section-title">
+                <span class="si">රාජාංගනයට සාදරයෙන් පිළිගනිමු</span>
+                <span class="en">Welcome to Rajanganaya</span>
+            </h2>
+            <p style="margin-top: 10px;">
+                <span class="si">අනුරාධපුර දිස්ත්‍රික්කයේ පිහිටි රාජාංගනය යනු සශ්‍රීක කෙත්වතු, මනරම් රාජාංගනය ජලාශය සහ ආගන්තුක සත්කාරයට ලැදි ජනතාවක් වෙසෙන සුන්දර ප්‍රදේශයකි.</span>
+                <span class="en">Located in the Anuradhapura District, Rajanganaya is a picturesque region blessed with lush paddy fields, the scenic Rajanganaya Reservoir, and warm, hospitable people.</span>
+            </p>
+
+            <!-- Photo 1, Photo 2, Photo 3 Gallery -->
+            <div class="photo-grid">
+                <div class="photo-card">
+                    <img src="photo1.jpg" alt="Rajanganaya View 1">
+                    <div class="photo-card-caption">
+                        <span class="si">රාජාංගනය ජලාශයේ මනරම් දසුනක්</span>
+                        <span class="en">Scenic View of Rajanganaya Reservoir</span>
+                    </div>
+                </div>
+                <div class="photo-card">
+                    <img src="photo2.jpg" alt="Rajanganaya View 2">
+                    <div class="photo-card-caption">
+                        <span class="si">සශ්‍රීක කෙත්වතු සහ ගොවි බිම්</span>
+                        <span class="en">Lush Green Paddy Fields</span>
+                    </div>
+                </div>
+                <div class="photo-card">
+                    <img src="photo3.jpg" alt="Rajanganaya View 3">
+                    <div class="photo-card-caption">
+                        <span class="si">සොබාදහමේ අසිරිය</span>
+                        <span class="en">Natural Beauty of Rajanganaya</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Contact Details & WhatsApp Button -->
+            <div class="contact-box">
+                <h3 style="color: var(--primary-green); margin-bottom: 10px;">
+                    <span class="si">📞 අප හා සම්බන්ධ වන්න (Contact Us)</span>
+                    <span class="en">📞 Get in Touch With Us</span>
+                </h3>
+                <div class="contact-grid">
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <strong>Email:</strong><br>
+                            <a href="mailto:info@rajanganaya.lk" style="color: var(--water-blue); text-decoration: none;">info@rajanganaya.lk</a>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-phone-alt"></i>
+                        <div>
+                            <strong>
+                                <span class="si">දුරකථන අංකය:</span>
+                                <span class="en">Contact Number:</span>
+                            </strong><br>
+                            <a href="tel:+94771234567" style="color: var(--text-dark); text-decoration: none;">+94 77 123 4567</a>
+                        </div>
+                    </div>
+                    <div class="contact-item" style="justify-content: center;">
+                        <!-- Replace 94771234567 with your actual WhatsApp number -->
+                        <a href="https://wa.me/94771234567?text=Ayubowan%20Rajanganaya!" target="_blank" class="whatsapp-btn">
+                            <i class="fab fa-whatsapp" style="color: white; font-size: 1.4rem;"></i>
+                            <span class="si">WhatsApp හරහා සම්බන්ධ වන්න</span>
+                            <span class="en">Chat on WhatsApp</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 2. RESERVOIR TAB (රාජාංගනය ජලාශය) -->
+        <section id="reservoir" class="tab-content">
+            <h2 class="section-title">
+                <span class="si">රාජාංගනය ජලාශය</span>
+                <span class="en">Rajanganaya Reservoir</span>
+            </h2>
+            <div class="split-section">
+                <div>
+                    <p class="si">
+                        කලා ඔය හරස් කරමින් ඉදිකර ඇති රාජාංගනය ජලාශය අනුරාධපුර සහ කුරුණෑගල දිස්ත්‍රික්ක මායිමේ පිහිටි විශාලතම ජලාශයකි. 1960 දශකයේදී පමණ නවීකරණය කරන ලද මෙම ජලාශය අක්කර අඩි 81,000කට අධික ජල ධාරිතාවකින් යුක්ත වේ. ප්‍රදේශයේ පානීය ජල අවශ්‍යතාවය සහ කෘෂිකාර්මික කටයුතු සඳහා ප්‍රධාන ජල මූලාශ්‍රය වන්නේ මෙම ජලාශයයි.
+                    </p>
+                    <p class="en">
+                        Built across the Kala Oya river, the Rajanganaya Reservoir is one of the largest reservoirs bordering the Anuradhapura and Kurunegala districts. Restored in the 1960s, it holds a capacity of over 81,000 acre-feet of water, serving as the lifeline for agriculture and drinking water in the region.
+                    </p>
+                </div>
+                <img src="photo5.jpg" onerror="this.src='photo1.jpg'" alt="Rajanganaya Reservoir">
+            </div>
+        </section>
+
+        <!-- 3. AGRICULTURE TAB (කෘෂිකර්මාන්තය) -->
+        <section id="agriculture" class="tab-content">
+            <h2 class="section-title">
+                <span class="si">රාජාංගනය කෘෂිකර්මාන්තය</span>
+                <span class="en">Agriculture in Rajanganaya</span>
+            </h2>
+            <div class="split-section">
+                <img src="photo6.jpg" onerror="this.src='photo2.jpg'" alt="Agriculture in Rajanganaya">
+                <div>
+                    <p class="si">
+                        රාජාංගනය යනු ශ්‍රී ලංකාවේ ප්‍රධාන වී සහ අතිරේක බෝග නිෂ්පාදන කලාපයකි. යල සහ මහ කන්න දෙකේදීම රාජාංගනය ජලාශයේ ජලයෙන් අක්කර දහස් ගණනක වී වගා කෙරේ. වී වගාවට අමතරව කෙසෙල්, බඩඉරිඟු, එළවළු සහ පලතුරු වගාවන්ද මෙහි ඉතා සාර්ථකව සිදු කෙරේ.
+                    </p>
+                    <p class="en">
+                        Rajanganaya is a major hub for paddy and cash crop production in Sri Lanka. Irrigated by the Rajanganaya Reservoir during both Yala and Maha seasons, thousands of acres of paddy are cultivated alongside bananas, maize, vegetables, and tropical fruits.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. FISHERIES TAB (ධීවර කර්මාන්තය) -->
+        <section id="fisheries" class="tab-content">
+            <h2 class="section-title">
+                <span class="si">රාජාංගනය ධීවර කර්මාන්තය</span>
+                <span class="en">Inland Fisheries</span>
+            </h2>
+            <div class="split-section">
+                <div>
+                    <p class="si">
+                        රාජාංගනය ජලාශය ආශ්‍රිතව මිරිදිය ධීවර කර්මාන්තය ඉතා දියුණු මට්ටමක පවතී. පවුල් සිය ගණනකගේ ප්‍රධාන ජීවනෝපාය වන්නේ මිරිදිය මසුන් ඇල්ලීමයි. තිලාපියා, කැට්ලා, රෝහු සහ ලූලා වැනි මත්ස්‍ය විශේෂ බහුලව මෙහිදී අල්ලා ගන්නා අතර ප්‍රදේශයේ මෙන්ම පිටපළාත්වල පාරිභෝගිකයන්ටද නැවුම් මිරිදිය මසුන් සපයනු ලැබේ.
+                    </p>
+                    <p class="en">
+                        Freshwater fishing thrives around the Rajanganaya Reservoir, providing the primary livelihood for hundreds of local families. Varieties such as Tilapia, Catla, Rohu, and Snakehead are harvested daily, supplying fresh inland fish to both local and regional markets.
+                    </p>
+                </div>
+                <img src="photo7.jpg" onerror="this.src='photo3.jpg'" alt="Fisheries in Rajanganaya">
+            </div>
+        </section>
+
+        <!-- 5. TOURISM TAB (සංචාරක කර්මාන්තය) -->
+        <section id="tourism" class="tab-content">
+            <h2 class="section-title">
+                <span class="si">රාජාංගනය සංචාරක කර්මාන්තය</span>
+                <span class="en">Tourism & Attractions</span>
+            </h2>
+            <div class="split-section">
+                <img src="photo8.jpg" onerror="this.src='photo4.jpg'" alt="Tourism in Rajanganaya">
+                <div>
+                    <p class="si">
+                        සොබාදහමට ආදරය කරන දෙස් විදෙස් සංචාරකයින්ට රාජාංගනය කදිම ගමනාන්තයකි. සන්ධ්‍යා කාලයේ රාජාංගනය වැව් බැම්ම මත සිට හිරු බැස යන දසුන නැරඹීම, කුරුල්ලන් නැරඹීම (Bird Watching), අසල පිහිටි විල්පත්තු ජාතික වනෝද්‍යානයට පිවිසීම සහ ඓතිහාසික රාජාංගනය ශෛලමය නටබුන් නැරඹීම සංචාරකයින්ට අපූරු අත්දැකීමක් ලබා දෙයි.
+                    </p>
+                    <p class="en">
+                        Rajanganaya is a hidden gem for nature lovers. Watching the sunset over the reservoir bund, bird watching, easy access to Wilpattu National Park, and exploring the ancient stone ruins of Rajanganaya offer unforgettable experiences for visitors.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 6. LIFESTYLE TAB (ජන ජීවිතය) -->
+        <section id="lifestyle" class="tab-content">
+            <h2 class="section-title">
+                <span class="si">රාජාංගනය ජන ජීවිතය</span>
+                <span class="en">People & Lifestyle</span>
+            </h2>
+            <div class="split-section">
+                <div>
+                    <p class="si">
+                        රාජාංගනය ජනපද ව්‍යාපාරය යටතේ දිවයිනේ විවිධ ප්‍රදේශවලින් පැමිණ පදිංචි වූ ජනතාවක් මෙහි වෙසෙති. වැවයි දාගැබයි ගමයි පන්සලයි යන සංස්කෘතියට අනුකූලව, ඉතා සමගියෙන් සහ අන්‍යෝන්‍ය සහයෝගයෙන් ජීවත් වන ගැමි සමාජයක් මෙහි දැකගත හැකිය. කෘෂිකාර්මික චාරිත්‍ර, අලුත් අවුරුදු උත්සව සහ ආගමික වතාවත් ඔවුන්ගේ ජීවිතයේ ප්‍රධාන අංගයන් වේ.
+                    </p>
+                    <p class="en">
+                        Settled under the Rajanganaya colonization scheme from various parts of the island, the community lives in harmony guided by the traditional Sri Lankan ethos of "Tank, Dagoba, Village, and Temple." Agricultural rituals, Sinhala New Year festivities, and religious traditions shape their daily lives.
+                    </p>
+                </div>
+                <img src="photo9.jpg" onerror="this.src='photo2.jpg'" alt="Lifestyle in Rajanganaya">
+            </div>
+        </section>
+
+        <!-- 7. HISTORY TAB (ඉතිහාසය) -->
+        <section id="history" class="tab-content">
+            <h2 class="section-title">
+                <span class="si">රාජාංගනය ඉතිහාසය</span>
+                <span class="en">History of Rajanganaya</span>
+            </h2>
+            <div class="split-section">
+                <img src="photo10.jpg" onerror="this.src='photo1.jpg'" alt="History of Rajanganaya">
+                <div>
+                    <p class="si">
+                        රාජාංගනයට අනුරාධපුර යුගය දක්වා දිවෙන දීර්ඝ ඉතිහාසයක් ඇත. පුරාණයේ "රාජාංගන විහාරය" හෙවත් වර්තමාන රාජාංගනය රජමහා විහාරය, අෂ්ටඵලරුහ බෝධීන් වහන්සේ නමක් රෝපණය කළ පූජනීය ස්ථානයක් ලෙස ඉතිහාසයේ සඳහන් වේ. ශෛලමය බුද්ධ ප්‍රතිමා, පැරණි සෙල්ලිපි සහ පුරාවිද්‍යාත්මක නටබුන් මගින් මෙම ප්‍රදේශයේ පෞරාණික ශ්‍රී විභූතිය මැනවින් පෙන්නුම් කරයි.
+                    </p>
+                    <p class="en">
+                        Rajanganaya boasts a rich history dating back to the Anuradhapura era. The ancient Rajanganaya Raja Maha Viharaya is revered as one of the sacred sites where an Ashtapala Bodhi sapling was planted. Stone Buddha statues, ancient inscriptions, and archaeological ruins bear witness to its glorious past.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Floating WhatsApp Button -->
+    <a href="https://wa.me/94771234567?text=Ayubowan%20Rajanganaya!" target="_blank" class="floating-wa" title="WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- Footer -->
+    <footer>
+        <p>
+            <span class="si">© 2026 සුන්දර රාජාංගනය. සියලුම හිමිකම් ඇවිරිණි.</span>
+            <span class="en">© 2026 Beautiful Rajanganaya. All Rights Reserved.</span>
+        </p>
+    </footer>
+
+    <!-- JavaScript for Tabs and Language Switching -->
+    <script>
+        // Switch between Sinhala and English
+        function setLanguage(lang) {
+            document.body.className = 'lang-' + lang;
+            
+            document.getElementById('btn-si').classList.remove('active');
+            document.getElementById('btn-en').classList.remove('active');
+            document.getElementById('btn-' + lang).classList.add('active');
+        }
+
+        // Switch between Tabs
+        function openTab(evt, tabName) {
+            var i, tabcontent, tablinks;
+            
+            tabcontent = document.getElementsByClassName("tab-content");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].classList.remove("active");
+            }
+            
+            tablinks = document.getElementsByClassName("tab-btn");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].classList.remove("active");
+            }
+            
+            document.getElementById(tabName).classList.add("active");
+            evt.currentTarget.classList.add("active");
+        }
+    </script>
 
 </body>
 </html>
